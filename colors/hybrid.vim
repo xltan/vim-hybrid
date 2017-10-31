@@ -296,10 +296,10 @@ exe "hi! DiffDelete"    .s:fg_background  .s:bg_delbg       .s:fmt_none
 exe "hi! DiffText"      .s:fg_background  .s:bg_blue        .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_background  .s:bg_red         .s:fmt_stnd
 exe "hi! VertSplit"     .s:fg_window      .s:bg_none        .s:fmt_none
-exe "hi! Folded"        .s:fg_comment     .s:bg_darkcolumn  .s:fmt_none
-exe "hi! FoldColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
-exe "hi! SignColumn"    .s:fg_none        .s:bg_darkcolumn  .s:fmt_none
-"   Incsearch"
+exe "hi! Folded"        .s:fg_comment     .s:bg_line        .s:fmt_none
+exe "hi! FoldColumn"    .s:fg_none        .s:bg_line        .s:fmt_none
+exe "hi! SignColumn"    .s:fg_selection   .s:bg_none        .s:fmt_none
+exe "hi! IncSearch"     .s:fg_background  .s:bg_orange      .s:fmt_none
 exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! MatchParen"    .s:fg_background  .s:bg_changebg    .s:fmt_none
@@ -317,8 +317,8 @@ exe "hi! SpellCap"      .s:fg_blue        .s:bg_darkblue    .s:fmt_undr
 exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_darkcyan    .s:fmt_undr
 exe "hi! SpellBad"      .s:fg_red         .s:bg_darkred     .s:fmt_undr
 exe "hi! SpellRare"     .s:fg_purple      .s:bg_darkpurple  .s:fmt_undr
-exe "hi! StatusLine"    .s:fg_comment     .s:bg_background  .s:fmt_revr
-exe "hi! StatusLineNC"  .s:fg_window      .s:bg_comment     .s:fmt_revr
+exe "hi! StatusLine"    .s:fg_foreground  .s:bg_line        .s:fmt_none
+exe "hi! StatusLineNC"  .s:fg_comment     .s:bg_line        .s:fmt_none
 exe "hi! TabLine"       .s:fg_foreground  .s:bg_darkcolumn  .s:fmt_revr
 "   TabLineFill"
 "   TabLineSel"
@@ -328,7 +328,7 @@ exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
 exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none
 " FIXME LongLineWarning to use variables instead of hardcoding
 hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
-"   WildMenu"
+exe "hi! WildMenu"      .s:fg_background  .s:bg_yellow      .s:fmt_none
 
 " Use defined custom background colour for terminal Vim.
 if !has('gui_running') && exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
@@ -399,7 +399,7 @@ exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
 " Diff
 "   diffOldFile
 "   diffNewFile
-"   diffFile
+exe "hi! diffFile"        .s:fg_orange      .s:bg_none        .s:fmt_none
 "   diffOnly
 "   diffIdentical
 "   diffDiffer
@@ -407,16 +407,47 @@ exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
 "   diffIsA
 "   diffNoEOL
 "   diffCommon
-hi! link diffRemoved Constant
+exe "hi! diffRemoved"     .s:fg_red         .s:bg_none        .s:fmt_none
 "   diffChanged
-hi! link diffAdded Special
-"   diffLine
+exe "hi! diffAdded"       .s:fg_green       .s:bg_none        .s:fmt_none
+exe "hi! diffLine"        .s:fg_purple      .s:bg_none        .s:fmt_none
 "   diffSubname
 "   diffComment
 
 "}}}
 "
+
+hi! link ValidatorErrorSign ErrorMsg
+hi! link ValidatorWarningSign ErrorMsg
+
+hi! link StatusLineTerm StatusLine
+hi! link StatusLineTermNC StatusLineNC
+
+exe "hi! gitcommitComment"      .s:fg_comment   .s:bg_none        .s:fmt_none
+exe "hi! gitcommitUnmerged"     .s:fg_green     .s:bg_none        .s:fmt_none
+exe "hi! gitcommitOnBranch"     .s:fg_foreground.s:bg_normal      .s:fmt_none
+exe "hi! gitcommitBranch"       .s:fg_purple    .s:bg_none        .s:fmt_none
+exe "hi! gitcommitDiscardedType".s:fg_red       .s:bg_none        .s:fmt_none
+exe "hi! gitcommitSelectedType" .s:fg_green     .s:bg_none        .s:fmt_none
+exe "hi! gitcommitHeader"       .s:fg_foreground.s:bg_normal      .s:fmt_none
+exe "hi! gitcommitUntrackedFile".s:fg_blue      .s:bg_normal      .s:fmt_none
+exe "hi! gitcommitDiscardedFile".s:fg_red       .s:bg_none        .s:fmt_none
+exe "hi! gitcommitSelectedFile" .s:fg_green     .s:bg_none        .s:fmt_none
+exe "hi! gitcommitUnmergedFile" .s:fg_yellow    .s:bg_none        .s:fmt_none
+exe "hi! gitcommitFile"         .s:fg_foreground.s:bg_normal      .s:fmt_none
+exe "hi! gitcommitSummary"      .s:fg_foreground.s:bg_normal      .s:fmt_none
+exe "hi! gitcommitOverflow"     .s:fg_red       .s:bg_none        .s:fmt_none
+hi link gitcommitNoBranch gitcommitBranch
+hi link gitcommitUntracked gitcommitComment
+hi link gitcommitDiscarded gitcommitComment
+hi link gitcommitSelected gitcommitComment
+hi link gitcommitDiscardedArrow gitcommitDiscardedFile
+hi link gitcommitSelectedArrow gitcommitSelectedFile
+hi link gitcommitUnmergedArrow gitcommitUnmergedFile
+
+"
 " This is needed for some reason: {{{
+
 
 let &background = s:style
 
