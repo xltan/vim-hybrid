@@ -353,7 +353,7 @@ exe "hi! String"          .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! Identifier"      .s:fg_purple      .s:bg_none        .s:fmt_none
 exe "hi! Function"        .s:fg_yellow      .s:bg_none        .s:fmt_none
 
-exe "hi! Statement"       .s:fg_aqua        .s:bg_none        .s:fmt_none
+exe "hi! Statement"       .s:fg_blue        .s:bg_none        .s:fmt_none
 "   Conditional"
 "   Repeat"
 "   Label"
@@ -424,7 +424,7 @@ hi! link ValidatorWarningSign ErrorMsg
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
 
-exe "hi! goDeclaration"         .s:fg_aqua   .s:bg_none        .s:fmt_none
+exe "hi! goDeclaration"         .s:fg_blue      .s:bg_none        .s:fmt_none
 
 exe "hi! gitcommitComment"      .s:fg_comment   .s:bg_none        .s:fmt_none
 exe "hi! gitcommitUnmerged"     .s:fg_green     .s:bg_none        .s:fmt_none
