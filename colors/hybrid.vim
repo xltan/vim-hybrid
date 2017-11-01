@@ -285,7 +285,7 @@ exe "let s:sp_darkpurple = ' guisp=". s:palette.gui.darkpurple[s:style] ."'"
 " ----------------------------------------------------------------------------
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
 "   Conceal"
-"   Cursor"
+exe "hi! Cursor"        .s:fg_background  .s:bg_blue        .s:fmt_none
 "   CursorIM"
 exe "hi! CursorColumn"  .s:fg_none        .s:bg_line        .s:fmt_none
 exe "hi! CursorLine"    .s:fg_none        .s:bg_line        .s:fmt_none
@@ -302,7 +302,7 @@ exe "hi! SignColumn"    .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! IncSearch"     .s:fg_background  .s:bg_orange      .s:fmt_none
 exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! MatchParen"    .s:fg_background  .s:bg_changebg    .s:fmt_none
+exe "hi! MatchParen"    .s:fg_blue        .s:bg_none        .s:fmt_undr
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_selection   .s:bg_none        .s:fmt_none
@@ -343,7 +343,7 @@ exe "hi! Normal"        .s:fg_foreground  .s:bg_normal      .s:fmt_none
 " ----------------------------------------------------------------------------
 exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
 
-exe "hi! Constant"        .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! Constant"        .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! String"          .s:fg_green       .s:bg_none        .s:fmt_none
 "   Character"
 "   Number"
@@ -422,6 +422,8 @@ hi! link ValidatorWarningSign ErrorMsg
 
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
+
+exe "hi! goDeclaration"      .s:fg_blue   .s:bg_none        .s:fmt_none
 
 exe "hi! gitcommitComment"      .s:fg_comment   .s:bg_none        .s:fmt_none
 exe "hi! gitcommitUnmerged"     .s:fg_green     .s:bg_none        .s:fmt_none
