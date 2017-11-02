@@ -295,6 +295,7 @@ exe "hi! DiffChange"    .s:fg_changefg    .s:bg_changebg    .s:fmt_none
 exe "hi! DiffDelete"    .s:fg_background  .s:bg_delbg       .s:fmt_none
 exe "hi! DiffText"      .s:fg_background  .s:bg_blue        .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_background  .s:bg_red         .s:fmt_none
+exe "hi! WarningMsg"    .s:fg_background  .s:bg_orange      .s:fmt_none
 exe "hi! VertSplit"     .s:fg_window      .s:bg_none        .s:fmt_none
 exe "hi! Folded"        .s:fg_comment     .s:bg_line        .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_line        .s:fmt_none
@@ -325,7 +326,6 @@ exe "hi! TabLine"       .s:fg_foreground  .s:bg_none        .s:fmt_revr
 exe "hi! Title"         .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
 "   VisualNos"
-exe "hi! WarningMsg"     .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! LongLineWarning".s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! WildMenu"       .s:fg_background  .s:bg_yellow      .s:fmt_none
 
@@ -384,7 +384,7 @@ exe "hi! Ignore"          .s:fg_none        .s:bg_none        .s:fmt_none
 
 exe "hi! Error"           .s:fg_red         .s:bg_none        .s:fmt_undr
 
-exe "hi! Todo"            .s:fg_addfg       .s:bg_none        .s:fmt_none
+exe "hi! Todo"            .s:fg_addfg       .s:bg_none        .s:fmt_undr
 
 " Quickfix window highlighting
 exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
@@ -417,8 +417,8 @@ exe "hi! diffLine"        .s:fg_purple      .s:bg_none        .s:fmt_none
 "}}}
 "
 
-hi! link ValidatorErrorSign ErrorMsg
-hi! link ValidatorWarningSign ErrorMsg
+hi! link ValidatorErrorSign Error
+hi! link ValidatorWarningSign Todo
 
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
