@@ -312,7 +312,7 @@ exe "hi! PmenuSel"      .s:fg_foreground  .s:bg_selection   .s:fmt_revr
 "   PmenuThumb"
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! Search"        .s:fg_background  .s:bg_yellow      .s:fmt_none
-exe "hi! SpecialKey"    .s:fg_selection   .s:bg_none        .s:fmt_none
+exe "hi! SpecialKey"    .s:fg_comment     .s:bg_none        .s:fmt_none
 exe "hi! SpellCap"      .s:fg_blue        .s:bg_none        .s:fmt_undr
 exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_none        .s:fmt_undr
 exe "hi! SpellBad"      .s:fg_red         .s:bg_none        .s:fmt_undr
@@ -325,10 +325,9 @@ exe "hi! TabLine"       .s:fg_foreground  .s:bg_none        .s:fmt_revr
 exe "hi! Title"         .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
 "   VisualNos"
-exe "hi! WarningMsg"    .s:fg_red         .s:bg_none        .s:fmt_none
-" FIXME LongLineWarning to use variables instead of hardcoding
-hi LongLineWarning  guifg=NONE        guibg=#371F1C     gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
-exe "hi! WildMenu"      .s:fg_background  .s:bg_yellow      .s:fmt_none
+exe "hi! WarningMsg"     .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! LongLineWarning".s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! WildMenu"       .s:fg_background  .s:bg_yellow      .s:fmt_none
 
 " Use defined custom background colour for terminal Vim.
 if !has('gui_running') && exists("g:hybrid_custom_term_colors") && g:hybrid_custom_term_colors == 1
@@ -343,7 +342,7 @@ exe "hi! Normal"        .s:fg_foreground  .s:bg_normal      .s:fmt_none
 " ----------------------------------------------------------------------------
 exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
 
-exe "hi! Constant"        .s:fg_yellow      .s:bg_none        .s:fmt_none
+exe "hi! Constant"        .s:fg_orange      .s:bg_none        .s:fmt_none
 exe "hi! String"          .s:fg_green       .s:bg_none        .s:fmt_none
 "   Character"
 "   Number"
