@@ -101,7 +101,7 @@ let s:palette.gui.foreground = { 'dark' : "#c5c8c6"        , 'light' : "#000000"
 let s:palette.gui.selection  = { 'dark' : s:gui_selection  , 'light' : "#bcbcbc" }
 let s:palette.gui.line       = { 'dark' : s:gui_line       , 'light' : "#d0d0d0" }
 let s:palette.gui.comment    = { 'dark' : s:gui_comment    , 'light' : "#5f5f5f" }
-let s:palette.gui.red        = { 'dark' : "#cc7676"        , 'light' : "#5f0000" }
+let s:palette.gui.red        = { 'dark' : "#cc6666"        , 'light' : "#5f0000" }
 let s:palette.gui.orange     = { 'dark' : "#de935f"        , 'light' : "#875f00" }
 let s:palette.gui.yellow     = { 'dark' : "#f0c674"        , 'light' : "#5f5f00" }
 let s:palette.gui.green      = { 'dark' : "#b5bd68"        , 'light' : "#005f00" }
@@ -294,8 +294,8 @@ exe "hi! DiffAdd"       .s:fg_addfg       .s:bg_addbg       .s:fmt_none
 exe "hi! DiffChange"    .s:fg_changefg    .s:bg_changebg    .s:fmt_none
 exe "hi! DiffDelete"    .s:fg_background  .s:bg_delbg       .s:fmt_none
 exe "hi! DiffText"      .s:fg_background  .s:bg_blue        .s:fmt_none
-exe "hi! ErrorMsg"      .s:fg_background  .s:bg_red         .s:fmt_none
-exe "hi! WarningMsg"    .s:fg_background  .s:bg_orange      .s:fmt_none
+exe "hi! ErrorMsg"      .s:fg_red         .s:bg_none         .s:fmt_none
+exe "hi! WarningMsg"    .s:fg_orange      .s:bg_none      .s:fmt_none
 exe "hi! VertSplit"     .s:fg_window      .s:bg_none        .s:fmt_none
 exe "hi! Folded"        .s:fg_comment     .s:bg_line        .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_line        .s:fmt_none
