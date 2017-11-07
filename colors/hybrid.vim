@@ -423,7 +423,7 @@ hi! link ValidatorWarningSign Todo
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
 
-exe "hi! goDeclaration"         .s:fg_blue      .s:bg_none        .s:fmt_none
+hi link goDeclaration Statement
 
 exe "hi! gitcommitComment"      .s:fg_comment   .s:bg_none        .s:fmt_none
 exe "hi! gitcommitUnmerged"     .s:fg_green     .s:bg_none        .s:fmt_none
