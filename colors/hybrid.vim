@@ -314,9 +314,9 @@ exe "hi! PmenuSel"      .s:fg_foreground  .s:bg_selection   .s:fmt_revr
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! Search"        .s:fg_background  .s:bg_yellow      .s:fmt_none
 exe "hi! SpecialKey"    .s:fg_comment     .s:bg_none        .s:fmt_none
-exe "hi! SpellCap"      .s:fg_foreground  .s:bg_none        .s:fmt_curl
+exe "hi! SpellCap"      .s:fg_none        .s:bg_none        .s:fmt_curl
 exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_none        .s:fmt_curl
-exe "hi! SpellBad"      .s:fg_foreground  .s:bg_none        .s:fmt_curl
+exe "hi! SpellBad"      .s:fg_none        .s:bg_none        .s:fmt_curl
 exe "hi! SpellRare"     .s:fg_purple      .s:bg_none        .s:fmt_curl
 exe "hi! StatusLine"    .s:fg_foreground  .s:bg_line        .s:fmt_none
 exe "hi! StatusLineNC"  .s:fg_comment     .s:bg_line        .s:fmt_none
