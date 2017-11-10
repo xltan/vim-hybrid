@@ -320,9 +320,11 @@ exe "hi! SpellBad"      .s:fg_none        .s:bg_none        .s:fmt_curl
 exe "hi! SpellRare"     .s:fg_purple      .s:bg_none        .s:fmt_curl
 exe "hi! StatusLine"    .s:fg_foreground  .s:bg_line        .s:fmt_none
 exe "hi! StatusLineNC"  .s:fg_comment     .s:bg_line        .s:fmt_none
-exe "hi! TabLine"       .s:fg_foreground  .s:bg_none        .s:fmt_revr
-"   TabLineFill"
-"   TabLineSel"
+
+exe "hi! TabLine"       .s:fg_comment     .s:bg_line        .s:fmt_none
+exe "hi! TabLineFill"   .s:fg_comment     .s:bg_line        .s:fmt_none
+exe "hi! TabLineSel"    .s:fg_foreground  .s:bg_none        .s:fmt_none
+
 exe "hi! Title"         .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
 "   VisualNos"
