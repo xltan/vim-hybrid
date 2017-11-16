@@ -85,7 +85,7 @@ let g:colors_name = "hybrid"
 let s:palette = {'gui' : {} , 'cterm' : {}}
 
 if exists("g:hybrid_reduced_contrast") && g:hybrid_reduced_contrast == 1
-  let s:gui_foreground = "#b4bac0"
+  let s:gui_foreground = "#c0c3c6"
   let s:gui_background = "#232c31"
   let s:gui_selection  = "#425059"
   let s:gui_line       = "#2d3c46"
@@ -298,7 +298,7 @@ exe "hi! DiffDelete"    .s:fg_background  .s:bg_delbg       .s:fmt_none
 exe "hi! DiffText"      .s:fg_background  .s:bg_blue        .s:fmt_none
 exe "hi! ErrorMsg"      .s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! WarningMsg"    .s:fg_orange      .s:bg_none        .s:fmt_none
-exe "hi! VertSplit"     .s:fg_line  .s:bg_line        .s:fmt_none
+exe "hi! VertSplit"     .s:fg_line        .s:bg_line        .s:fmt_none
 exe "hi! Folded"        .s:fg_comment     .s:bg_line        .s:fmt_none
 exe "hi! FoldColumn"    .s:fg_none        .s:bg_line        .s:fmt_none
 exe "hi! SignColumn"    .s:fg_selection   .s:bg_none        .s:fmt_none
