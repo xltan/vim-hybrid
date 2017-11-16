@@ -287,7 +287,7 @@ exe "let s:sp_darkpurple = ' guisp=". s:palette.gui.darkpurple[s:style] ."'"
 " ----------------------------------------------------------------------------
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
 "   Conceal"
-exe "hi! Cursor"        .s:fg_background  .s:bg_aqua        .s:fmt_none
+" exe "hi! Cursor"        .s:fg_background  .s:bg_red        .s:fmt_none
 "   CursorIM"
 exe "hi! CursorColumn"  .s:fg_none        .s:bg_line        .s:fmt_none
 exe "hi! CursorLine"    .s:fg_none        .s:bg_line        .s:fmt_none
@@ -305,7 +305,7 @@ exe "hi! SignColumn"    .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! IncSearch"     .s:fg_background  .s:bg_orange      .s:fmt_none
 exe "hi! LineNr"        .s:fg_selection   .s:bg_none        .s:fmt_none
 exe "hi! CursorLineNr"  .s:fg_yellow      .s:bg_none        .s:fmt_none
-exe "hi! MatchParen"    .s:fg_aqua        .s:bg_none        .s:fmt_undr
+exe "hi! MatchParen"    .s:fg_red         .s:bg_none        .s:fmt_undr
 exe "hi! ModeMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! MoreMsg"       .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! NonText"       .s:fg_selection   .s:bg_none        .s:fmt_none
