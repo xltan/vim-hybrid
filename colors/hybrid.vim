@@ -398,6 +398,7 @@ exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
 exe "hi! QuickFixLine"    .s:fg_orange      .s:bg_none        .s:fmt_none
 
 "}}}
+
 " Diff Syntax Highlighting:"{{{
 " ----------------------------------------------------------------------------
 " Diff
@@ -421,12 +422,8 @@ exe "hi! diffLine"        .s:fg_purple      .s:bg_none        .s:fmt_none
 "}}}
 "
 
-hi! link ValidatorErrorSign Error
-hi! link ValidatorWarningSign Todo
-
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
-
 hi link goDeclaration Statement
 
 exe "hi! gitcommitComment"      .s:fg_comment   .s:bg_none        .s:fmt_none
@@ -451,13 +448,10 @@ hi link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi link gitcommitSelectedArrow gitcommitSelectedFile
 hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 
-"
 " This is needed for some reason: {{{
-
-
 let &background = s:style
-
 " }}}
+ 
 " Legal:"{{{
 " ----------------------------------------------------------------------------
 " Copyright (c) 2011 Ethan Schoonover
