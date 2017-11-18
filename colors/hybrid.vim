@@ -5,7 +5,7 @@ let s:palette = {}
 
 let s:palette.foreground = "#c0c2c4"
 let s:palette.background = "#232c31"
-let s:palette.silver     = "#b2b4b6"
+let s:palette.silver     = "#a4a6a8"
 let s:palette.selection  = "#425059"
 let s:palette.line       = "#2d3c46"
 let s:palette.comment    = "#6c7a80"
@@ -21,7 +21,6 @@ let s:palette.addfg      = "#d7ffaf"
 let s:palette.changebg   = "#5F5F87"
 let s:palette.changefg   = "#d7d7ff"
 let s:palette.delbg      = "#cc6666"
-let s:palette.silver     = "#b2b4b6"
 
 "}}}
 " Formatting Options:"{{{
