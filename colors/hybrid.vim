@@ -252,6 +252,7 @@ exe "hi! diffLine"        .s:fg_purple      .s:bg_none        .s:fmt_none
 
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
+
 hi link goDeclaration Statement
 
 exe "hi! gitcommitComment"      .s:fg_comment   .s:bg_none      .s:fmt_none
@@ -276,6 +277,6 @@ hi link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi link gitcommitSelectedArrow gitcommitSelectedFile
 hi link gitcommitUnmergedArrow gitcommitUnmergedFile
 
-hi! Lf_hl_match guifg=SpringGreen guibg=NONE
-hi! Lf_hl_matchRefine guifg=SpringGreen guibg=NONE
+hi Lf_hl_match guifg=SpringGreen guibg=NONE
+hi Lf_hl_matchRefine guifg=SpringGreen guibg=NONE
 
