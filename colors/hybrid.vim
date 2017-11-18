@@ -3,7 +3,7 @@ hi clear
 let g:colors_name = "hybrid"
 let s:palette = {}
 
-let s:palette.foreground = "#c0c2c4"
+let s:palette.foreground = "#c6c8ca"
 let s:palette.background = "#232c31"
 let s:palette.silver     = "#a4a6a8"
 let s:palette.selection  = "#425059"
