@@ -1,53 +1,27 @@
 hi clear
 
-if exists("syntax_on")
-  syntax reset
-endif
-
-let s:style = &background
-
 let g:colors_name = "hybrid"
+let s:palette = {}
 
-let s:palette = {'gui' : {} , 'cterm' : {}}
-
-if exists("g:hybrid_reduced_contrast") && g:hybrid_reduced_contrast == 1
-  let s:gui_foreground = "#c0c3c6"
-  let s:gui_background = "#232c31"
-  let s:gui_selection  = "#425059"
-  let s:gui_line       = "#2d3c46"
-  let s:gui_comment    = "#6c7a80"
-else
-  let s:gui_foreground = "#c5c8cc"
-  let s:gui_background = "#1d1f21"
-  let s:gui_selection  = "#373b41"
-  let s:gui_line       = "#282a2e"
-  let s:gui_comment    = "#707880"
-endif
-
-let s:palette.gui.background = s:gui_background
-let s:palette.gui.foreground = s:gui_foreground
-let s:palette.gui.selection  = s:gui_selection
-let s:palette.gui.line       = s:gui_line
-let s:palette.gui.comment    = s:gui_comment
-let s:palette.gui.red        = "#cc7070"
-let s:palette.gui.orange     = "#de935f"
-let s:palette.gui.yellow     = "#f0c674"
-let s:palette.gui.green      = "#b5bd68"
-let s:palette.gui.aqua       = "#8abeb7"
-let s:palette.gui.blue       = "#81a2be"
-let s:palette.gui.purple     = "#b294bb"
-let s:palette.gui.window     = "#303030"
-let s:palette.gui.darkcolumn = "#1c1c1c"
-let s:palette.gui.addbg      = "#5F875F"
-let s:palette.gui.addfg      = "#d7ffaf"
-let s:palette.gui.changebg   = "#5F5F87"
-let s:palette.gui.changefg   = "#d7d7ff"
-let s:palette.gui.delbg      = "#cc6666"
-let s:palette.gui.darkblue   = "#00005f"
-let s:palette.gui.darkcyan   = "#005f5f"
-let s:palette.gui.darkred    = "#5f0000"
-let s:palette.gui.darkpurple = "#5f005f"
-let s:palette.gui.grey       = "#a0a6ac"
+let s:palette.foreground = "#c0c2c4"
+let s:palette.background = "#232c31"
+let s:palette.silver     = "#b2b4b6"
+let s:palette.selection  = "#425059"
+let s:palette.line       = "#2d3c46"
+let s:palette.comment    = "#6c7a80"
+let s:palette.red        = "#cc7070"
+let s:palette.orange     = "#de935f"
+let s:palette.yellow     = "#f0c664"
+let s:palette.green      = "#b5bd68"
+let s:palette.aqua       = "#8abeb7"
+let s:palette.blue       = "#81a2be"
+let s:palette.purple     = "#b294bb"
+let s:palette.addbg      = "#5F875F"
+let s:palette.addfg      = "#d7ffaf"
+let s:palette.changebg   = "#5F5F87"
+let s:palette.changefg   = "#d7d7ff"
+let s:palette.delbg      = "#cc6666"
+let s:palette.silver     = "#b2b4b6"
 
 "}}}
 " Formatting Options:"{{{
@@ -67,8 +41,8 @@ let s:i      = ",italic"
 " ----------------------------------------------------------------------------
 function! s:build_prim(hi_elem, field)
   " Given a:hi_elem = bg, a:field = comment
-  let l:vname = "s:" . a:hi_elem . "_" . a:field " s:bg_comment
-  let l:gui_assign = "gui".a:hi_elem."=".s:palette.gui[a:field] " guibg=...
+  let l:vname = "s:" . a:hi_elem . "_" . a:field
+  let l:gui_assign = "gui".a:hi_elem."=".s:palette[a:field]
   exe "let " . l:vname . " = ' " . l:gui_assign . " " . "'"
 endfunction
 
@@ -85,18 +59,12 @@ call s:build_prim('bg', 'green')
 call s:build_prim('bg', 'aqua')
 call s:build_prim('bg', 'blue')
 call s:build_prim('bg', 'purple')
-call s:build_prim('bg', 'window')
-call s:build_prim('bg', 'darkcolumn')
 call s:build_prim('bg', 'addbg')
 call s:build_prim('bg', 'addfg')
 call s:build_prim('bg', 'changebg')
 call s:build_prim('bg', 'changefg')
 call s:build_prim('bg', 'delbg')
-call s:build_prim('bg', 'darkblue')
-call s:build_prim('bg', 'darkcyan')
-call s:build_prim('bg', 'darkred')
-call s:build_prim('bg', 'darkpurple')
-call s:build_prim('bg', 'grey')
+call s:build_prim('bg', 'silver')
 
 let s:fg_none = ' guifg=NONE ctermfg=NONE'
 call s:build_prim('fg', 'foreground')
@@ -111,17 +79,11 @@ call s:build_prim('fg', 'green')
 call s:build_prim('fg', 'aqua')
 call s:build_prim('fg', 'blue')
 call s:build_prim('fg', 'purple')
-call s:build_prim('fg', 'window')
-call s:build_prim('fg', 'darkcolumn')
 call s:build_prim('fg', 'addbg')
 call s:build_prim('fg', 'addfg')
 call s:build_prim('fg', 'changebg')
 call s:build_prim('fg', 'changefg')
-call s:build_prim('fg', 'darkblue')
-call s:build_prim('fg', 'darkcyan')
-call s:build_prim('fg', 'darkred')
-call s:build_prim('fg', 'darkpurple')
-call s:build_prim('fg', 'grey')
+call s:build_prim('fg', 'silver')
 
 exe "let s:fmt_none = ' gui=NONE".          " cterm=NONE".          " term=NONE"        ."'"
 exe "let s:fmt_bold = ' gui=NONE".s:b.      " cterm=NONE".s:b.      " term=NONE".s:b    ."'"
@@ -136,29 +98,24 @@ exe "let s:fmt_revr = ' gui=NONE".s:r.      " cterm=NONE".s:r.      " term=NONE"
 exe "let s:fmt_revb = ' gui=NONE".s:r.s:b.  " cterm=NONE".s:r.s:b.  " term=NONE".s:r.s:b."'"
 
 exe "let s:sp_none       = ' guisp=". s:none                            ."'"
-exe "let s:sp_foreground = ' guisp=". s:palette.gui.foreground ."'"
-exe "let s:sp_background = ' guisp=". s:palette.gui.background ."'"
-exe "let s:sp_selection  = ' guisp=". s:palette.gui.selection  ."'"
-exe "let s:sp_line       = ' guisp=". s:palette.gui.line       ."'"
-exe "let s:sp_comment    = ' guisp=". s:palette.gui.comment    ."'"
-exe "let s:sp_red        = ' guisp=". s:palette.gui.red        ."'"
-exe "let s:sp_orange     = ' guisp=". s:palette.gui.orange     ."'"
-exe "let s:sp_yellow     = ' guisp=". s:palette.gui.yellow     ."'"
-exe "let s:sp_green      = ' guisp=". s:palette.gui.green      ."'"
-exe "let s:sp_aqua       = ' guisp=". s:palette.gui.aqua       ."'"
-exe "let s:sp_blue       = ' guisp=". s:palette.gui.blue       ."'"
-exe "let s:sp_purple     = ' guisp=". s:palette.gui.purple     ."'"
-exe "let s:sp_window     = ' guisp=". s:palette.gui.window     ."'"
-exe "let s:sp_addbg      = ' guisp=". s:palette.gui.addbg      ."'"
-exe "let s:sp_addfg      = ' guisp=". s:palette.gui.addfg      ."'"
-exe "let s:sp_changebg   = ' guisp=". s:palette.gui.changebg   ."'"
-exe "let s:sp_changefg   = ' guisp=". s:palette.gui.changefg   ."'"
-exe "let s:sp_darkblue   = ' guisp=". s:palette.gui.darkblue   ."'"
-exe "let s:sp_darkcyan   = ' guisp=". s:palette.gui.darkcyan   ."'"
-exe "let s:sp_darkred    = ' guisp=". s:palette.gui.darkred    ."'"
-exe "let s:sp_darkpurple = ' guisp=". s:palette.gui.darkpurple ."'"
-
+exe "let s:sp_foreground = ' guisp=". s:palette.foreground ."'"
+exe "let s:sp_background = ' guisp=". s:palette.background ."'"
+exe "let s:sp_selection  = ' guisp=". s:palette.selection  ."'"
+exe "let s:sp_line       = ' guisp=". s:palette.line       ."'"
+exe "let s:sp_comment    = ' guisp=". s:palette.comment    ."'"
+exe "let s:sp_red        = ' guisp=". s:palette.red        ."'"
+exe "let s:sp_orange     = ' guisp=". s:palette.orange     ."'"
+exe "let s:sp_yellow     = ' guisp=". s:palette.yellow     ."'"
+exe "let s:sp_green      = ' guisp=". s:palette.green      ."'"
+exe "let s:sp_aqua       = ' guisp=". s:palette.aqua       ."'"
+exe "let s:sp_blue       = ' guisp=". s:palette.blue       ."'"
+exe "let s:sp_purple     = ' guisp=". s:palette.purple     ."'"
+exe "let s:sp_addbg      = ' guisp=". s:palette.addbg      ."'"
+exe "let s:sp_addfg      = ' guisp=". s:palette.addfg      ."'"
+exe "let s:sp_changebg   = ' guisp=". s:palette.changebg   ."'"
+exe "let s:sp_changefg   = ' guisp=". s:palette.changefg   ."'"
 "}}}
+"
 " Vim Highlighting: (see :help highlight-groups)"{{{
 " ----------------------------------------------------------------------------
 exe "hi! ColorColumn"   .s:fg_none        .s:bg_line        .s:fmt_none
@@ -209,43 +166,47 @@ exe "hi! Visual"        .s:fg_none        .s:bg_selection   .s:fmt_none
 exe "hi! LongLineWarning".s:fg_red         .s:bg_none        .s:fmt_none
 exe "hi! WildMenu"       .s:fg_background  .s:bg_yellow      .s:fmt_none
 
-exe "hi! Normal"        .s:fg_foreground  .s:bg_background      .s:fmt_none
+exe "hi! Normal"         .s:fg_foreground   .s:bg_background      .s:fmt_none
 
 "}}}
 " Generic Syntax Highlighting: (see :help group-name)"{{{
 " ----------------------------------------------------------------------------
-exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
+if exists("g:hybrid_less_color") && g:hybrid_less_color == 1
+  exe "hi! Function"        .s:fg_silver      .s:bg_none        .s:fmt_none
+  exe "hi! Type"            .s:fg_silver      .s:bg_none        .s:fmt_none
+  exe "hi! Constant"        .s:fg_silver      .s:bg_none        .s:fmt_none
+  exe "hi! Structure"       .s:fg_silver      .s:bg_none        .s:fmt_none
+else
+  exe "hi! Function"        .s:fg_yellow      .s:bg_none        .s:fmt_none
+  exe "hi! Type"            .s:fg_orange      .s:bg_none        .s:fmt_none
+  exe "hi! Constant"        .s:fg_red         .s:bg_none        .s:fmt_none
+  exe "hi! Structure"       .s:fg_aqua        .s:bg_none        .s:fmt_none
+endif
 
-exe "hi! Constant"        .s:fg_foreground  .s:bg_none        .s:fmt_none
+exe "hi! Statement"       .s:fg_silver      .s:bg_none        .s:fmt_none
+exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
 exe "hi! String"          .s:fg_green       .s:bg_none        .s:fmt_none
+exe "hi! Identifier"      .s:fg_purple      .s:bg_none        .s:fmt_none
+exe "hi! Operator"        .s:fg_aqua        .s:bg_none        .s:fmt_none
+exe "hi! PreProc"         .s:fg_aqua        .s:bg_none        .s:fmt_none
+exe "hi! Special"         .s:fg_green       .s:bg_none        .s:fmt_none
 "   Character"
 "   Number"
 "   Boolean"
 "   Float"
 
-exe "hi! Identifier"      .s:fg_purple      .s:bg_none        .s:fmt_none
-exe "hi! Function"        .s:fg_yellow      .s:bg_none        .s:fmt_none
-
-exe "hi! Statement"       .s:fg_grey        .s:bg_none        .s:fmt_none
 "   Conditional"
 "   Repeat"
 "   Label"
-exe "hi! Operator"        .s:fg_aqua        .s:bg_none        .s:fmt_none
 "   Keyword"
 "   Exception"
-
-exe "hi! PreProc"         .s:fg_aqua        .s:bg_none        .s:fmt_none
 "   Include"
 "   Define"
 "   Macro"
 "   PreCondit"
-
-exe "hi! Type"            .s:fg_orange      .s:bg_none        .s:fmt_none
 "   StorageClass"
-exe "hi! Structure"       .s:fg_aqua        .s:bg_none        .s:fmt_none
 "   Typedef"
 
-exe "hi! Special"         .s:fg_green       .s:bg_none        .s:fmt_none
 "   SpecialChar"
 "   Tag"
 "   Delimiter"
@@ -253,11 +214,8 @@ exe "hi! Special"         .s:fg_green       .s:bg_none        .s:fmt_none
 "   Debug"
 "
 exe "hi! Underlined"      .s:fg_blue        .s:bg_none        .s:fmt_none
-
 exe "hi! Ignore"          .s:fg_none        .s:bg_none        .s:fmt_none
-
 exe "hi! Error"           .s:fg_red         .s:bg_none        .s:fmt_undr
-
 exe "hi! Todo"            .s:fg_addfg       .s:bg_none        .s:fmt_undr
 
 " Quickfix window highlighting
@@ -296,20 +254,20 @@ hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
 hi link goDeclaration Statement
 
-exe "hi! gitcommitComment"      .s:fg_comment   .s:bg_none        .s:fmt_none
-exe "hi! gitcommitUnmerged"     .s:fg_green     .s:bg_none        .s:fmt_none
-exe "hi! gitcommitOnBranch"     .s:fg_foreground.s:bg_background      .s:fmt_none
-exe "hi! gitcommitBranch"       .s:fg_purple    .s:bg_none        .s:fmt_none
-exe "hi! gitcommitDiscardedType".s:fg_red       .s:bg_none        .s:fmt_none
-exe "hi! gitcommitSelectedType" .s:fg_green     .s:bg_none        .s:fmt_none
-exe "hi! gitcommitHeader"       .s:fg_foreground.s:bg_background      .s:fmt_none
-exe "hi! gitcommitUntrackedFile".s:fg_blue      .s:bg_background      .s:fmt_none
-exe "hi! gitcommitDiscardedFile".s:fg_red       .s:bg_none        .s:fmt_none
-exe "hi! gitcommitSelectedFile" .s:fg_green     .s:bg_none        .s:fmt_none
-exe "hi! gitcommitUnmergedFile" .s:fg_yellow    .s:bg_none        .s:fmt_none
-exe "hi! gitcommitFile"         .s:fg_foreground.s:bg_background      .s:fmt_none
-exe "hi! gitcommitSummary"      .s:fg_foreground.s:bg_background      .s:fmt_none
-exe "hi! gitcommitOverflow"     .s:fg_red       .s:bg_none        .s:fmt_none
+exe "hi! gitcommitComment"      .s:fg_comment   .s:bg_none      .s:fmt_none
+exe "hi! gitcommitUnmerged"     .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! gitcommitOnBranch"     .s:fg_foreground.s:bg_background.s:fmt_none
+exe "hi! gitcommitBranch"       .s:fg_purple    .s:bg_none      .s:fmt_none
+exe "hi! gitcommitDiscardedType".s:fg_red       .s:bg_none      .s:fmt_none
+exe "hi! gitcommitSelectedType" .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! gitcommitHeader"       .s:fg_foreground.s:bg_background.s:fmt_none
+exe "hi! gitcommitUntrackedFile".s:fg_blue      .s:bg_background.s:fmt_none
+exe "hi! gitcommitDiscardedFile".s:fg_red       .s:bg_none      .s:fmt_none
+exe "hi! gitcommitSelectedFile" .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi! gitcommitUnmergedFile" .s:fg_yellow    .s:bg_none      .s:fmt_none
+exe "hi! gitcommitFile"         .s:fg_foreground.s:bg_background.s:fmt_none
+exe "hi! gitcommitSummary"      .s:fg_foreground.s:bg_background.s:fmt_none
+exe "hi! gitcommitOverflow"     .s:fg_red       .s:bg_none      .s:fmt_none
 hi link gitcommitNoBranch gitcommitBranch
 hi link gitcommitUntracked gitcommitComment
 hi link gitcommitDiscarded gitcommitComment
@@ -317,4 +275,7 @@ hi link gitcommitSelected gitcommitComment
 hi link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi link gitcommitSelectedArrow gitcommitSelectedFile
 hi link gitcommitUnmergedArrow gitcommitUnmergedFile
+
+hi! Lf_hl_match guifg=SpringGreen guibg=NONE
+hi! Lf_hl_matchRefine guifg=SpringGreen guibg=NONE
 
