@@ -5,16 +5,16 @@ let s:palette = {}
 
 let s:palette.foreground = "#c6cace"
 let s:palette.background = "#232c31"
-let s:palette.silver     = "#98a0a8"
+let s:palette.silver     = "#a0aab4"
 let s:palette.selection  = "#425059"
 let s:palette.line       = "#2d3c46"
-let s:palette.comment    = "#606e7a"
-let s:palette.red        = "#cc7070"
+let s:palette.comment    = "#5c6370"
+let s:palette.red        = "#e06c75"
 let s:palette.orange     = "#de935f"
-let s:palette.yellow     = "#f0c664"
+let s:palette.yellow     = "#e5c079"
 let s:palette.green      = "#b5bd68"
 let s:palette.aqua       = "#8abeb7"
-let s:palette.blue       = "#81a2be"
+let s:palette.blue       = "#71afdf"
 let s:palette.purple     = "#b294bb"
 let s:palette.addbg      = "#5F875F"
 let s:palette.addfg      = "#d7ffaf"
@@ -216,7 +216,7 @@ exe "hi! Special"         .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! Underlined"      .s:fg_blue        .s:bg_none        .s:fmt_none
 exe "hi! Ignore"          .s:fg_none        .s:bg_none        .s:fmt_none
 exe "hi! Error"           .s:fg_red         .s:bg_none        .s:fmt_undr
-exe "hi! Todo"            .s:fg_addfg       .s:bg_none        .s:fmt_undr
+exe "hi! Todo"            .s:fg_green       .s:bg_none        .s:fmt_undr
 
 " Quickfix window highlighting
 exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
@@ -255,20 +255,23 @@ hi! link StatusLineTermNC StatusLineNC
 
 hi link goDeclaration Statement
 
-exe "hi! gitcommitComment"      .s:fg_comment   .s:bg_none      .s:fmt_none
-exe "hi! gitcommitUnmerged"     .s:fg_green     .s:bg_none      .s:fmt_none
-exe "hi! gitcommitOnBranch"     .s:fg_foreground.s:bg_background.s:fmt_none
-exe "hi! gitcommitBranch"       .s:fg_purple    .s:bg_none      .s:fmt_none
-exe "hi! gitcommitDiscardedType".s:fg_red       .s:bg_none      .s:fmt_none
-exe "hi! gitcommitSelectedType" .s:fg_green     .s:bg_none      .s:fmt_none
-exe "hi! gitcommitHeader"       .s:fg_foreground.s:bg_background.s:fmt_none
-exe "hi! gitcommitUntrackedFile".s:fg_blue      .s:bg_background.s:fmt_none
-exe "hi! gitcommitDiscardedFile".s:fg_red       .s:bg_none      .s:fmt_none
-exe "hi! gitcommitSelectedFile" .s:fg_green     .s:bg_none      .s:fmt_none
-exe "hi! gitcommitUnmergedFile" .s:fg_yellow    .s:bg_none      .s:fmt_none
-exe "hi! gitcommitFile"         .s:fg_foreground.s:bg_background.s:fmt_none
-exe "hi! gitcommitSummary"      .s:fg_foreground.s:bg_background.s:fmt_none
-exe "hi! gitcommitOverflow"     .s:fg_red       .s:bg_none      .s:fmt_none
+exe "hi Lf_hl_match" . s:fg_red . s:bg_none . s:fmt_none
+exe "hi Lf_hl_matchRefine" . s:fg_red . s:bg_none . s:fmt_none
+
+exe "hi gitcommitComment"      .s:fg_comment   .s:bg_none      .s:fmt_none
+exe "hi gitcommitUnmerged"     .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi gitcommitOnBranch"     .s:fg_foreground.s:bg_background.s:fmt_none
+exe "hi gitcommitBranch"       .s:fg_purple    .s:bg_none      .s:fmt_none
+exe "hi gitcommitDiscardedType".s:fg_red       .s:bg_none      .s:fmt_none
+exe "hi gitcommitSelectedType" .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi gitcommitHeader"       .s:fg_foreground.s:bg_background.s:fmt_none
+exe "hi gitcommitUntrackedFile".s:fg_blue      .s:bg_background.s:fmt_none
+exe "hi gitcommitDiscardedFile".s:fg_red       .s:bg_none      .s:fmt_none
+exe "hi gitcommitSelectedFile" .s:fg_green     .s:bg_none      .s:fmt_none
+exe "hi gitcommitUnmergedFile" .s:fg_yellow    .s:bg_none      .s:fmt_none
+exe "hi gitcommitFile"         .s:fg_foreground.s:bg_background.s:fmt_none
+exe "hi gitcommitSummary"      .s:fg_foreground.s:bg_background.s:fmt_none
+exe "hi gitcommitOverflow"     .s:fg_red       .s:bg_none      .s:fmt_none
 hi link gitcommitNoBranch gitcommitBranch
 hi link gitcommitUntracked gitcommitComment
 hi link gitcommitDiscarded gitcommitComment
@@ -276,7 +279,4 @@ hi link gitcommitSelected gitcommitComment
 hi link gitcommitDiscardedArrow gitcommitDiscardedFile
 hi link gitcommitSelectedArrow gitcommitSelectedFile
 hi link gitcommitUnmergedArrow gitcommitUnmergedFile
-
-hi Lf_hl_match guifg=SpringGreen guibg=NONE
-hi Lf_hl_matchRefine guifg=SpringGreen guibg=NONE
 
