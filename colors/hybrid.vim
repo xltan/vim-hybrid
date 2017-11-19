@@ -3,12 +3,12 @@ hi clear
 let g:colors_name = "hybrid"
 let s:palette = {}
 
-let s:palette.foreground = "#c6c8ca"
+let s:palette.foreground = "#c6cace"
 let s:palette.background = "#232c31"
-let s:palette.silver     = "#a4a6a8"
+let s:palette.silver     = "#a6b0ba"
 let s:palette.selection  = "#425059"
 let s:palette.line       = "#2d3c46"
-let s:palette.comment    = "#6c7a80"
+let s:palette.comment    = "#606e7a"
 let s:palette.red        = "#cc7070"
 let s:palette.orange     = "#de935f"
 let s:palette.yellow     = "#f0c664"
@@ -147,7 +147,7 @@ exe "hi! PmenuSel"      .s:fg_foreground  .s:bg_selection   .s:fmt_revr
 "   PmenuThumb"
 exe "hi! Question"      .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! Search"        .s:fg_background  .s:bg_yellow      .s:fmt_none
-exe "hi! SpecialKey"    .s:fg_comment     .s:bg_none        .s:fmt_none
+exe "hi! SpecialKey"    .s:fg_silver      .s:bg_none        .s:fmt_none
 exe "hi! SpellCap"      .s:fg_none        .s:bg_none        .s:fmt_curl
 exe "hi! SpellLocal"    .s:fg_aqua        .s:bg_none        .s:fmt_curl
 exe "hi! SpellBad"      .s:fg_none        .s:bg_none        .s:fmt_curl
