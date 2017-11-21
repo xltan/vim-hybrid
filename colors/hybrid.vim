@@ -5,7 +5,7 @@ let s:palette = {}
 
 let s:palette.foreground = "#c6cace"
 let s:palette.background = "#232c31"
-let s:palette.silver     = "#a6aabe"
+let s:palette.silver     = "#abb2b9"
 let s:palette.selection  = "#425059"
 let s:palette.line       = "#2d3c46"
 let s:palette.comment    = "#5c6370"
