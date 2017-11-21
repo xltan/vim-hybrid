@@ -14,7 +14,7 @@ let s:palette.orange     = "#de935f"
 let s:palette.yellow     = "#e5c079"
 let s:palette.green      = "#b5bd68"
 let s:palette.aqua       = "#8abeb7"
-let s:palette.blue       = "#71afdf"
+let s:palette.blue       = "#81a2be"
 let s:palette.purple     = "#b294bb"
 let s:palette.addbg      = "#5F875F"
 let s:palette.addfg      = "#d7ffaf"
@@ -171,12 +171,14 @@ exe "hi! Normal"         .s:fg_foreground   .s:bg_background      .s:fmt_none
 " Generic Syntax Highlighting: (see :help group-name)"{{{
 " ----------------------------------------------------------------------------
 if exists("g:hybrid_less_color") && g:hybrid_less_color == 1
+  exe "hi! Statement"       .s:fg_silver      .s:bg_none        .s:fmt_none
   exe "hi! Function"        .s:fg_silver      .s:bg_none        .s:fmt_none
   exe "hi! Type"            .s:fg_silver      .s:bg_none        .s:fmt_none
   exe "hi! Constant"        .s:fg_silver      .s:bg_none        .s:fmt_none
   exe "hi! Structure"       .s:fg_silver      .s:bg_none        .s:fmt_none
   exe "hi! Operator"        .s:fg_silver      .s:bg_none        .s:fmt_none
 else
+  exe "hi! Statement"       .s:fg_blue        .s:bg_none        .s:fmt_none
   exe "hi! Function"        .s:fg_yellow      .s:bg_none        .s:fmt_none
   exe "hi! Type"            .s:fg_orange      .s:bg_none        .s:fmt_none
   exe "hi! Constant"        .s:fg_red         .s:bg_none        .s:fmt_none
@@ -184,7 +186,6 @@ else
   exe "hi! Operator"        .s:fg_aqua        .s:bg_none        .s:fmt_none
 endif
 
-exe "hi! Statement"       .s:fg_silver      .s:bg_none        .s:fmt_none
 exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
 exe "hi! String"          .s:fg_green       .s:bg_none        .s:fmt_none
 exe "hi! Identifier"      .s:fg_purple      .s:bg_none        .s:fmt_none
