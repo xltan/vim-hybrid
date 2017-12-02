@@ -186,17 +186,16 @@ if exists("g:hybrid_less_color") && g:hybrid_less_color == 1
   exe "hi! Statement"       .s:fg_silver      .s:bg_none        .s:fmt_none
   exe "hi! Function"        .s:fg_silver      .s:bg_none        .s:fmt_none
   exe "hi! Type"            .s:fg_silver      .s:bg_none        .s:fmt_none
-  exe "hi! Constant"        .s:fg_silver      .s:bg_none        .s:fmt_none
   exe "hi! Structure"       .s:fg_silver      .s:bg_none        .s:fmt_none
   exe "hi! Operator"        .s:fg_silver      .s:bg_none        .s:fmt_none
 else
   exe "hi! Statement"       .s:fg_blue        .s:bg_none        .s:fmt_none
   exe "hi! Function"        .s:fg_yellow      .s:bg_none        .s:fmt_none
   exe "hi! Type"            .s:fg_orange      .s:bg_none        .s:fmt_none
-  exe "hi! Constant"        .s:fg_red         .s:bg_none        .s:fmt_none
   exe "hi! Structure"       .s:fg_aqua        .s:bg_none        .s:fmt_none
   exe "hi! Operator"        .s:fg_aqua        .s:bg_none        .s:fmt_none
 endif
+exe "hi! Constant"        .s:fg_red         .s:bg_none        .s:fmt_none
 
 exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
 exe "hi! String"          .s:fg_green       .s:bg_none        .s:fmt_none
