@@ -227,8 +227,8 @@ exe "hi! Special"         .s:fg_green       .s:bg_none        .s:fmt_none
 "
 exe "hi! Underlined"      .s:fg_blue        .s:bg_none        .s:fmt_none
 exe "hi! Ignore"          .s:fg_none        .s:bg_none        .s:fmt_none
-exe "hi! Error"           .s:fg_red         .s:bg_none        .s:fmt_undr
-exe "hi! Todo"            .s:fg_green       .s:bg_none        .s:fmt_undr
+exe "hi! Error"           .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! Todo"            .s:fg_green       .s:bg_none        .s:fmt_none
 
 " Quickfix window highlighting
 exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
